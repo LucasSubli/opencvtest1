@@ -26,7 +26,7 @@ args = vars(ap.parse_args())
 # load the query image and show it
 queryImage = cv2.imread(args["query"])
 cv2.imshow("Query", queryImage)
-print "query: %s" % (args["query"])
+print("query: %s" % (args["query"]))
 
 # describe the query in the same way that we did in
 # index.py -- a 3D RGB histogram with 8 bins per
@@ -53,7 +53,7 @@ for j in xrange(0, 10):
 	(score, imageName) = results[j]
 	path = args["dataset"] + "/%s" % (imageName)
 	result = cv2.imread(path)
-	print "\t%d. %s : %.3f" % (j + 1, imageName, score)
+	print("\t%d. %s : %.3f" % (j + 1, imageName, score))
 
 	# check to see if the first montage should be used
 	if j < 5:
