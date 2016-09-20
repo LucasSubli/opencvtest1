@@ -23,6 +23,7 @@ ap.add_argument("-q", "--query", required = True,
 	help = "Path to query image")
 args = vars(ap.parse_args())
 
+
 # load the query image and show it
 queryImage = cv2.imread(args["query"])
 cv2.imshow("Query", queryImage)
