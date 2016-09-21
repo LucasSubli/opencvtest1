@@ -10,7 +10,7 @@ from pyimagesearch.rgbhistogram import RGBHistogram
 from pyimagesearch.searcher import Searcher
 import numpy as np
 import argparse
-import cPickle
+import _pickle as cPickle
 import cv2
 
 # construct the argument parser and parse the arguments
@@ -36,7 +36,7 @@ desc = RGBHistogram([8, 8, 8])
 queryFeatures = desc.describe(queryImage)
 
 # load the index perform the search
-index = cPickle.loads(open(args["index"]).read())
+index = cPickle.loads(open(args["index"], 'rb').read())
 searcher = Searcher(index)
 results = searcher.search(queryFeatures)
 
@@ -48,7 +48,7 @@ montageA = np.zeros((166 * 5, 400, 3), dtype = "uint8")
 montageB = np.zeros((166 * 5, 400, 3), dtype = "uint8")
 
 # loop over the top ten results
-for j in xrange(0, 10):
+for j in range(0, 10):
 	# grab the result (we are using row-major order) and
 	# load the result image
 	(score, imageName) = results[j]
